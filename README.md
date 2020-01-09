@@ -10,3 +10,9 @@ that can be applied to other projects.
 
 Development of the game tutorial is done using
 [Godot](https://godotengine.org/) 3.1.2.
+
+## Assets for the Tutorial
+All assets come from [Kenney](https://www.kenney.nl/). Specific assets used in 
+this tutorial are the 
+[Top-down Tanks Redux](https://kenney.nl/assets/topdown-tanks-redux)
+pack.
