@@ -2,7 +2,7 @@
 
 ## Description
 Game tutorial from Chris Bradfield at 
-[KidsCanCode](http://kidscancode.org/blog/2018/04/godot3_tanks_part1/). 
+[KidsCanCode - Topdown Tank Battle](http://kidscancode.org/blog/2018/04/godot3_tanks_part1/). 
 
 In the tutorial series, a 2D top-down tank game is built using Godot 3.0. The
 goal of the series is to introduce Godot’s workflow and show various techniques
