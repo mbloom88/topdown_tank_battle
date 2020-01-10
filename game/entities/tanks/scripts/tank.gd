@@ -2,24 +2,27 @@ extends KinematicBody2D
 
 # Signals
 signal dead
-signal health_changed
+signal bullet_fired(bullet, spawn, direction)
+signal health_changed(health, max_health)
 
 # Child nodes
 onready var _turret_pivot = $TurretPivot
-onready var _cannon_cooldown = $CannonCooldown
+onready var _muzzle_point = $TurretPivot/Turret/MuzzlePoint
+onready var _shell_cooldown = $ShellCooldown
 
 # Tank
-export (int) var _max_health = 0
+export (int) var max_health = 0
+var _health = 0
 var _is_alive = true
 
 # Turret
-export (PackedScene) var _cannon_shell
-export (float) var _cannon_fire_cooldown = 0.0
-var _can_shoot = true
+export (PackedScene) var _shell
+export (float) var _shell_cooldown_value = 0.0
 
 # Movement
-export (float) var _max_speed = 0.0
-export (float) var _rotation_speed = 0.0
+export (float) var max_speed = 0.0
+export (float) var _body_rotation_speed = 0.0
+var _speed = 0
 var _velocity = Vector2()
 
 ################################################################################
@@ -37,16 +40,47 @@ func _physics_process(delta):
 #-------------------------------------------------------------------------------
 
 func _ready():
-	_cannon_cooldown.wait_time = _cannon_fire_cooldown
+	_health = max_health
+	_shell_cooldown.wait_time = _shell_cooldown_value
 
 ################################################################################
 # PRIVATE METHODS
 ################################################################################
 
 func _detect_controls(delta):
+	"""
+	Overwrite method in inheriting script.
+	"""
 	pass
 
 #-------------------------------------------------------------------------------
 
+func _explode():
+	queue_free()
+
+#-------------------------------------------------------------------------------
+
+func _shoot_shell():
+	if _shell_cooldown.is_stopped():
+		_shell_cooldown.start()
+		var spawn = _muzzle_point.global_position
+		var dir = Vector2(1, 0).rotated(_turret_pivot.global_rotation)
+		emit_signal('bullet_fired', _shell, spawn, dir)
+
+#-------------------------------------------------------------------------------
+
 func _steer_turret(delta):
-	pass
+	"""
+	Overwrite method in inheriting script.
+	"""
+
+################################################################################
+# PUBLIC METHODS
+################################################################################
+
+func take_damage(amount):
+	_health -= amount
+	emit_signal('health_changed', _health, max_health)
+	
+	if _health <= 0:
+		_explode()

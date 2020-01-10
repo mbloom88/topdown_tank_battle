@@ -1,0 +1,4 @@
+[gd_resource type="RectangleShape2D" format=2]
+
+[resource]
+extents = Vector2( 16.0532, 12.0766 )

@@ -2,7 +2,9 @@
 
 [ext_resource path="res://entities/tanks/scripts/tank.gd" type="Script" id=1]
 
-[node name="Tank" type="KinematicBody2D"]
+[node name="Tank" type="KinematicBody2D" groups=[
+"tanks",
+]]
 script = ExtResource( 1 )
 
 [node name="TankBody" type="Sprite" parent="."]
@@ -15,4 +17,5 @@ script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-[node name="CannonCooldown" type="Timer" parent="."]
+[node name="ShellCooldown" type="Timer" parent="."]
+one_shot = true

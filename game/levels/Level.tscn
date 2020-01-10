@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://levels/scripts/level.gd" type="Script" id=1]
 [ext_resource path="res://entities/tanks/prefabs/player_tank/PlayerTank.tscn" type="PackedScene" id=2]
+[ext_resource path="res://interface/hud/player_health_bar/PlayerHealthBar.tscn" type="PackedScene" id=3]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
@@ -13,3 +14,12 @@ format = 1
 [node name="PlayerTank" parent="." instance=ExtResource( 2 )]
 
 [node name="PatrolPaths" type="Node2D" parent="."]
+
+[node name="Bullets" type="Node2D" parent="."]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="PlayerHealthBar" parent="HUD" instance=ExtResource( 3 )]
+margin_left = 20.0
+margin_top = 20.0
+[connection signal="health_changed" from="PlayerTank" to="HUD/PlayerHealthBar" method="_on_PlayerTank_health_changed"]

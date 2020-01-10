@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/onlyObjects_retina.png-e24af33599b66f32e8434dbe2b8d333c.stex"
+path="res://.import/greenSheet.png-df90d5e2e794a6b553b941553b20eb61.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gfx/spritesheets/onlyObjects_retina.png"
-dest_files=[ "res://.import/onlyObjects_retina.png-e24af33599b66f32e8434dbe2b8d333c.stex" ]
+source_file="res://assets/gfx/spritesheets/interface/greenSheet.png"
+dest_files=[ "res://.import/greenSheet.png-df90d5e2e794a6b553b941553b20eb61.stex" ]
 
 [params]
 
