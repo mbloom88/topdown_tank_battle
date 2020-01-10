@@ -1,4 +1,4 @@
-extends "res://entities/tank/scripts/tank.gd"
+extends "res://entities/tanks/scripts/tank.gd"
 
 # Child nodes
 onready var _camera = $Camera2D

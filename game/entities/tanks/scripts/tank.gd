@@ -31,12 +31,13 @@ func _physics_process(delta):
 		return
 	
 	_detect_controls(delta)
+	_steer_turret(delta)
 	move_and_slide(_velocity)
 
 #-------------------------------------------------------------------------------
 
 func _ready():
-	_initialize()
+	_cannon_cooldown.wait_time = _cannon_fire_cooldown
 
 ################################################################################
 # PRIVATE METHODS
@@ -47,6 +48,5 @@ func _detect_controls(delta):
 
 #-------------------------------------------------------------------------------
 
-func _initialize():
-	_cannon_cooldown.wait_time = _cannon_fire_cooldown
-	
+func _steer_turret(delta):
+	pass

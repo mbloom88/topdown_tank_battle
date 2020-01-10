@@ -73,6 +73,13 @@ reverse={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="player_tank"
+2d_physics/layer_2="enemy_tanks"
+2d_physics/layer_3="environment"
+2d_physics/layer_4="bullets"
+
 [rendering]
 
 quality/2d/use_pixel_snap=true
