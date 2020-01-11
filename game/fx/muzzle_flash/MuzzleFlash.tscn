@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/gfx/spritesheets/entities/onlyObjects_retina.png" type="Texture" id=1]
+[ext_resource path="res://fx/muzzle_flash/scripts/muzzle_flash.gd" type="Script" id=2]
+[ext_resource path="res://fx/muzzle_flash/animations/SETUP.anim" type="Animation" id=3]
+[ext_resource path="res://fx/muzzle_flash/animations/flash.anim" type="Animation" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 648, 644, 40, 50 )
+
+[node name="MuzzleFlash" type="Sprite"]
+scale = Vector2( 0.5, 0.5 )
+texture = SubResource( 1 )
+offset = Vector2( 0, 25 )
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/SETUP = ExtResource( 3 )
+anims/flash = ExtResource( 4 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://entities/tanks/Tank.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/tanks/prefabs/enemy_tank/scripts/enemy_tank.gd" type="Script" id=2]
@@ -6,17 +6,19 @@
 [ext_resource path="res://assets/gfx/sprites/tank_parts_red/tankBody_red_outline.png" type="Texture" id=4]
 [ext_resource path="res://assets/gfx/sprites/tank_parts_red/tankRed_barrel2_outline.png" type="Texture" id=5]
 [ext_resource path="res://entities/tanks/prefabs/enemy_tank/collision_shapes/enemy_tank_collision_shape.tres" type="Shape2D" id=6]
+[ext_resource path="res://interface/hud/unit_display/UnitDisplay.tscn" type="PackedScene" id=7]
 
 [node name="EnemyTank" instance=ExtResource( 1 )]
 collision_layer = 2
+collision_mask = 5
 script = ExtResource( 2 )
 max_health = 100
 _shell = ExtResource( 3 )
 _shell_cooldown_value = 1.0
 max_speed = 200.0
 _body_rotation_speed = 100.0
-_detection_radius = 500.0
-_turret_rotation_speed = 1.5
+_detection_radius = 800.0
+_turret_rotation_speed = 2.5
 
 [node name="TankBody" parent="." index="0"]
 rotation = -1.5708
@@ -28,7 +30,10 @@ rotation = -1.5708
 texture = ExtResource( 5 )
 
 [node name="MuzzlePoint" parent="TurretPivot/Turret" index="0"]
-position = Vector2( -1.53305e-006, 35.072 )
+position = Vector2( -0.00019455, 88.3451 )
+
+[node name="MuzzleFlash" parent="TurretPivot/Turret" index="1"]
+position = Vector2( -0.000126557, 34.9605 )
 
 [node name="CollisionShape2D" parent="." index="2"]
 shape = ExtResource( 6 )
@@ -49,5 +54,8 @@ position = Vector2( 0, 32 )
 enabled = true
 cast_to = Vector2( 100, 0 )
 collision_mask = 7
+
+[node name="UnitDisplay" parent="." index="7" instance=ExtResource( 7 )]
+[connection signal="health_changed" from="." to="UnitDisplay" method="_on_Unit_health_changed"]
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_PlayerDetection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_PlayerDetection_body_exited"]

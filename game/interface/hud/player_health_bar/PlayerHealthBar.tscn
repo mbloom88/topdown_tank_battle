@@ -1,28 +1,55 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://interface/hud/player_health_bar/scripts/player_health_bar.gd" type="Script" id=1]
-[ext_resource path="res://assets/gfx/sprites/tank_parts_blue/tank_blue.png" type="Texture" id=2]
-[ext_resource path="res://assets/gfx/spritesheets/interface/uipackSpace_sheet.png" type="Texture" id=3]
-[ext_resource path="res://assets/gfx/spritesheets/interface/greenSheet.png" type="Texture" id=4]
+[ext_resource path="res://assets/gfx/spritesheets/interface/greenSheet.png" type="Texture" id=2]
+[ext_resource path="res://assets/gfx/spritesheets/interface/yellowSheet.png" type="Texture" id=3]
+[ext_resource path="res://assets/gfx/spritesheets/interface/redSheet.png" type="Texture" id=4]
+[ext_resource path="res://interface/hud/player_health_bar/animations/SETUP.anim" type="Animation" id=5]
+[ext_resource path="res://interface/hud/player_health_bar/animations/health_flash.anim" type="Animation" id=6]
+[ext_resource path="res://assets/gfx/sprites/tank_parts_blue/tank_blue.png" type="Texture" id=7]
+[ext_resource path="res://assets/gfx/spritesheets/interface/uipackSpace_sheet.png" type="Texture" id=8]
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 190, 49, 190, 45 )
+
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 3 )
+region = Rect2( 0, 94, 189, 45 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 91, 190, 48 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 8 )
 region = Rect2( 0, 0, 100, 100 )
 
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 4 )
-region = Rect2( 194, 52, 182, 38 )
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 190, 49, 190, 45 )
 
 [node name="PlayerHealthBar" type="HBoxContainer"]
 margin_right = 40.0
 margin_bottom = 40.0
 custom_constants/separation = 20
 script = ExtResource( 1 )
+green_bar = SubResource( 3 )
+yellow_bar = SubResource( 4 )
+yellow_threshold_percentage = 60
+red_bar = SubResource( 5 )
+red_threshold_percentage = 25
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/SETUP = ExtResource( 5 )
+anims/health_flash = ExtResource( 6 )
+
+[node name="Tween" type="Tween" parent="."]
 
 [node name="Icon" type="TextureRect" parent="."]
 margin_right = 84.0
 margin_bottom = 92.0
-texture = ExtResource( 2 )
+texture = ExtResource( 7 )
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 margin_left = 104.0
@@ -36,10 +63,11 @@ margin_bottom = 71.0
 rect_min_size = Vector2( 500, 50 )
 step = 0.1
 value = 50.0
-texture_over = SubResource( 1 )
-texture_progress = SubResource( 2 )
+texture_over = SubResource( 6 )
+texture_progress = SubResource( 7 )
 nine_patch_stretch = true
 stretch_margin_left = 10
 stretch_margin_top = 10
 stretch_margin_right = 10
 stretch_margin_bottom = 10
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

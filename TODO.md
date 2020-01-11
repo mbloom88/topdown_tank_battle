@@ -1,3 +1,4 @@
 # To Do
 
-* [Topdown Tank Battle: Part 6, Making It Pretty](http://kidscancode.org/blog/2018/05/godot3_tanks_part6/)
+* [Godot 3.0: Visibility with Ray-casting](http://kidscancode.org/blog/2018/03/godot3_visibility_raycasts/)
+* [Topdown Tank Battle: Part 11](http://kidscancode.org/blog/2018/08/godot3_tanks_part11/) 

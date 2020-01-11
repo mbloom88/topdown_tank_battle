@@ -5,12 +5,16 @@ onready var _ground = $Ground
 onready var _player = $PlayerTank
 onready var _bullets = $Bullets
 
+# Mouse
+export (Resource) var mouse_cursor
+
 ################################################################################
 # BUILT-IN VIRTUAL METHODS (CANNOT OVERRIDE)
 ################################################################################
 
 func _ready():
 	_set_camera_limits()
+	_set_mouse_cursor()
 	_connect_tanks()
 	_player.update_health_hud()
 
@@ -38,7 +42,16 @@ func _set_camera_limits():
 
 #-------------------------------------------------------------------------------
 
-func _on_Tank_bullet_fired(bullet, spawn, direction):
+func _set_mouse_cursor():
+	var hotspot = Vector2(32, 32) # Cursor’s detection point
+	Input.set_custom_mouse_cursor(mouse_cursor, Input.CURSOR_ARROW, 
+		hotspot)
+
+################################################################################
+# SIGNLA HANDLING
+################################################################################
+
+func _on_Tank_bullet_fired(bullet, spawn, direction, target=null):
 	var b = bullet.instance()
 	_bullets.add_child(b)
-	b.start(spawn, direction)
+	b.start(spawn, direction, target)

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://particles/rocket_trail/canvas_item_materials/rocket_trail_canvas_item.material" type="Material" id=1]
+[ext_resource path="res://particles/rocket_trail/process_materials/rocket_trail_process.material" type="Material" id=2]
+[ext_resource path="res://assets/gfx/particles/smoke_trail/spr_smoke_strip24.png" type="Texture" id=3]
+
+[node name="RocketTrail" type="Particles2D"]
+show_behind_parent = true
+material = ExtResource( 1 )
+amount = 35
+lifetime = 0.4
+speed_scale = 2.0
+local_coords = false
+process_material = ExtResource( 2 )
+texture = ExtResource( 3 )

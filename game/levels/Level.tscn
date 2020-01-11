@@ -1,25 +1,35 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://levels/scripts/level.gd" type="Script" id=1]
-[ext_resource path="res://entities/tanks/prefabs/player_tank/PlayerTank.tscn" type="PackedScene" id=2]
-[ext_resource path="res://interface/hud/player_health_bar/PlayerHealthBar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/gfx/spritesheets/interface/crosshairs_tilesheet_black.png" type="Texture" id=2]
+[ext_resource path="res://entities/tanks/prefabs/player_tank/PlayerTank.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface/hud/player_health_bar/PlayerHealthBar.tscn" type="PackedScene" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 483, 0, 64, 64 )
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
+mouse_cursor = SubResource( 1 )
 
 [node name="Ground" type="TileMap" parent="."]
 cell_size = Vector2( 128, 128 )
 format = 1
 
-[node name="PlayerTank" parent="." instance=ExtResource( 2 )]
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="PlayerTank" parent="." instance=ExtResource( 3 )]
 
 [node name="PatrolPaths" type="Node2D" parent="."]
+
+[node name="GunTurrets" type="Node2D" parent="."]
 
 [node name="Bullets" type="Node2D" parent="."]
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="PlayerHealthBar" parent="HUD" instance=ExtResource( 3 )]
+[node name="PlayerHealthBar" parent="HUD" instance=ExtResource( 4 )]
 margin_left = 20.0
 margin_top = 20.0
 [connection signal="health_changed" from="PlayerTank" to="HUD/PlayerHealthBar" method="_on_PlayerTank_health_changed"]

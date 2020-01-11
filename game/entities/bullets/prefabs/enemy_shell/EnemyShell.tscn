@@ -4,15 +4,15 @@
 [ext_resource path="res://assets/gfx/sprites/bullets/bulletRed2_outline.png" type="Texture" id=2]
 [ext_resource path="res://entities/bullets/prefabs/enemy_shell/collision_shapes/enemy_shell_collision_shape.tres" type="Shape2D" id=3]
 
-[node name="EnemyShell" index="0" instance=ExtResource( 1 )]
+[node name="EnemyShell" instance=ExtResource( 1 )]
 collision_mask = 5
-speed = 1000.0
-damage = 10.0
+speed = 1500.0
+damage = 25.0
 bullet_duration = 5.0
 
 [node name="Sprite" parent="." index="0"]
 rotation = 1.5708
 texture = ExtResource( 2 )
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="2"]
 shape = ExtResource( 3 )

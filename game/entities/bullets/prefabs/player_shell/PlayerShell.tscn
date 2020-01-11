@@ -8,13 +8,13 @@
 [node name="PlayerShell" index="0" instance=ExtResource( 1 )]
 collision_mask = 6
 script = ExtResource( 2 )
-speed = 1000.0
-damage = 10.0
+speed = 1500.0
+damage = 25.0
 bullet_duration = 5.0
 
 [node name="Sprite" parent="." index="0"]
 rotation = 1.5708
 texture = ExtResource( 3 )
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="2"]
 shape = ExtResource( 4 )
