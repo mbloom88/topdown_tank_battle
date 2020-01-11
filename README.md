@@ -25,6 +25,9 @@ Specific assets used in this tutorial are:
 ### Tank Tutorial Section 9 Obstacle Instancing Issue
 * [Changing one prefab changes all other instances of that prefab too](https://gamedev.stackexchange.com/questions/90228/changing-one-prefab-changes-all-other-instances-of-that-prefab-too)
 
+### Juicing Bullets
+[Gravity Ace Devlog: Making better bullets in Godot Engine](https://m.youtube.com/watch?v=Xj3rN8CzEEU&feature=youtu.be)
+
 ### Line of Sight
 * [Godot 3.0: Visibility with Ray-casting](http://kidscancode.org/blog/2018/03/godot3_visibility_raycasts/)
 
