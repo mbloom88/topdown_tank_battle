@@ -35,10 +35,10 @@ func _physics_process(delta):
 ################################################################################
 
 func _explode():
+	_sprite.hide()
 	_target = null
 	_velocity = Vector2()
 	_collision.set_deferred('disabled', true)
-	_sprite.hide()
 	_explosion.show()
 	_explosion.play('smoke')
 

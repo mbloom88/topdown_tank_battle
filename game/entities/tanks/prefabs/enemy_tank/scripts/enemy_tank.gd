@@ -13,21 +13,33 @@ onready var _unit_display = $UnitDisplay
 export (float) var _detection_radius = 0.0
 export (float) var _turret_rotation_speed = 0.0
 var _target = null
-var _obstacle = null
 var _is_in_los = false
+
+# Obstacle detection
+var _hit = Vector2()
+
+# Debug
+export (bool) var is_debugging = false
 
 ################################################################################
 # BUILT-IN VIRTUAL METHODS (CANNOT OVERRIDE)
 ################################################################################
 
 func _draw():
+	if not is_debugging:
+		return
+	
+	draw_circle(Vector2(), _detection_radius, Color(.867, .91, .247, 0.25))
+	
 	if _target:
-		draw_line(Vector2(), _obstacle.position - position, Color.red)
+		var hit_vector = (_hit - global_position).rotated(-global_rotation)
+		draw_line(Vector2(), hit_vector, Color.red)
+		draw_circle(hit_vector, 5, Color.red)
 
 #-------------------------------------------------------------------------------
 
 func _physics_process(delta):
-	update()
+		update()
 
 #-------------------------------------------------------------------------------
 
@@ -47,15 +59,15 @@ func _check_line_of_sight():
 	"""
 	var space = get_world_2d().direct_space_state
 	
-	var new_obstacle = space.intersect_ray(
-		global_position, _target.global_position, [self], collision_mask)
+	var new_obstacle = space.intersect_ray(global_position, 
+		_target.global_position, [self], collision_mask)
 	
 	# Error checking
 	if not new_obstacle:
-		_obstacle = null
+		_hit = Vector2()
 		return false
 	
-	_obstacle = new_obstacle.collider
+	_hit = new_obstacle.position
 	
 	if new_obstacle.collider == _target:
 		return true
@@ -117,11 +129,9 @@ func _steer_turret(delta):
 ################################################################################
 
 func _on_PlayerDetection_body_entered(body):
-		if body.collision_layer == 1:
-			_target = body
+	_target = body
 
 #-------------------------------------------------------------------------------
 
 func _on_PlayerDetection_body_exited(body):
-		if body.collision_layer == 1:
-			_target = null
+	_target = null
