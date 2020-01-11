@@ -23,7 +23,7 @@ Specific assets used in this tutorial are:
 ## Helpful Side Tutorials
 
 ### Tank Tutorial Section 9 Instancing Issue
-* [https://gamedev.stackexchange.com/questions/90228/changing-one-prefab-changes-all-other-instances-of-that-prefab-too](https://gamedev.stackexchange.com/questions/90228/changing-one-prefab-changes-all-other-instances-of-that-prefab-too)
+* [Changing one prefab changes all other instances of that prefab too](https://gamedev.stackexchange.com/questions/90228/changing-one-prefab-changes-all-other-instances-of-that-prefab-too)
 
 ### Line of Sight
 * [Godot 3.0: Visibility with Ray-casting](http://kidscancode.org/blog/2018/03/godot3_visibility_raycasts/)
