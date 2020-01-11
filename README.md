@@ -22,7 +22,7 @@ Specific assets used in this tutorial are:
 
 ## Helpful Side Tutorials
 
-### Tank Tutorial Section 9 Instancing Issue
+### Tank Tutorial Section 9 Obstacle Instancing Issue
 * [Changing one prefab changes all other instances of that prefab too](https://gamedev.stackexchange.com/questions/90228/changing-one-prefab-changes-all-other-instances-of-that-prefab-too)
 
 ### Line of Sight
