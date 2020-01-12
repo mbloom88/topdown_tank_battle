@@ -12,21 +12,21 @@ Development of the game tutorial is done using
 [Godot](https://godotengine.org/) 3.1.2.
 
 # Tutorial Sections
-[Topdown Tank Battle: Part 1](http://kidscancode.org/blog/2018/04/godot3_tanks_part1/)
-[Topdown Tank Battle: Part 2](http://kidscancode.org/blog/2018/04/godot3_tanks_part2/)
-[Topdown Tank Battle: Part 3](http://kidscancode.org/blog/2018/04/godot3_tanks_part3/)
-[Topdown Tank Battle: Part 4](http://kidscancode.org/blog/2018/04/godot3_tanks_part4/)
-[Topdown Tank Battle: Part 5](http://kidscancode.org/blog/2018/04/godot3_tanks_part5/)
-[Topdown Tank Battle: Part 6](http://kidscancode.org/blog/2018/05/godot3_tanks_part6/)
-[Topdown Tank Battle: Part 7](http://kidscancode.org/blog/2018/05/godot3_tanks_part7/)
-[Topdown Tank Battle: Part 8](http://kidscancode.org/blog/2018/05/godot3_tanks_part8/)
-[Topdown Tank Battle: Part 9](http://kidscancode.org/blog/2018/05/godot3_tanks_part9/)
-[Topdown Tank Battle: Part 10](http://kidscancode.org/blog/2018/08/godot3_tanks_part10/)
-[Topdown Tank Battle: Part 11](http://kidscancode.org/blog/2018/08/godot3_tanks_part11/)
-[Topdown Tank Battle: Part 12](https://www.youtube.com/watch?v=inPGu3nFsdQ)
-[Topdown Tank Battle: Part 13](https://www.youtube.com/watch?v=_yqgKsArOfI)
-[Topdown Tank Battle: Part 14](https://www.youtube.com/watch?v=9sfgJe0BhNs)
-[Topdown Tank Battle: Part 15](https://www.youtube.com/watch?v=DQygsmHABH8)
+* [Topdown Tank Battle: Part 1](http://kidscancode.org/blog/2018/04/godot3_tanks_part1/)
+* [Topdown Tank Battle: Part 2](http://kidscancode.org/blog/2018/04/godot3_tanks_part2/)
+* [Topdown Tank Battle: Part 3](http://kidscancode.org/blog/2018/04/godot3_tanks_part3/)
+* [Topdown Tank Battle: Part 4](http://kidscancode.org/blog/2018/04/godot3_tanks_part4/)
+* [Topdown Tank Battle: Part 5](http://kidscancode.org/blog/2018/04/godot3_tanks_part5/)
+* [Topdown Tank Battle: Part 6](http://kidscancode.org/blog/2018/05/godot3_tanks_part6/)
+* [Topdown Tank Battle: Part 7](http://kidscancode.org/blog/2018/05/godot3_tanks_part7/)
+* [Topdown Tank Battle: Part 8](http://kidscancode.org/blog/2018/05/godot3_tanks_part8/)
+* [Topdown Tank Battle: Part 9](http://kidscancode.org/blog/2018/05/godot3_tanks_part9/)
+* [Topdown Tank Battle: Part 10](http://kidscancode.org/blog/2018/08/godot3_tanks_part10/)
+* [Topdown Tank Battle: Part 11](http://kidscancode.org/blog/2018/08/godot3_tanks_part11/)
+* [Topdown Tank Battle: Part 12](https://www.youtube.com/watch?v=inPGu3nFsdQ)
+* [Topdown Tank Battle: Part 13](https://www.youtube.com/watch?v=_yqgKsArOfI)
+* [Topdown Tank Battle: Part 14](https://www.youtube.com/watch?v=9sfgJe0BhNs)
+* [Topdown Tank Battle: Part 15](https://www.youtube.com/watch?v=DQygsmHABH8)
 
 ## Assets for the Tutorial
 Specific assets used in this tutorial are: 
