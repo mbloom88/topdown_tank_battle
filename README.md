@@ -11,7 +11,7 @@ that can be applied to other projects.
 Development of the game tutorial is done using
 [Godot](https://godotengine.org/) 3.1.2.
 
-# Tutorial Sections
+## Tutorial Sections
 * [Topdown Tank Battle: Part 1](http://kidscancode.org/blog/2018/04/godot3_tanks_part1/)
 * [Topdown Tank Battle: Part 2](http://kidscancode.org/blog/2018/04/godot3_tanks_part2/)
 * [Topdown Tank Battle: Part 3](http://kidscancode.org/blog/2018/04/godot3_tanks_part3/)
@@ -36,6 +36,8 @@ Specific assets used in this tutorial are:
 * [Top-down Tanks Redux](https://kenney.nl/assets/topdown-tanks-redux)
 * [UI Pack](https://www.kenney.nl/assets/ui-pack)
 * [UI Pack: Space Expansion](https://www.kenney.nl/assets/ui-pack-space-expansion)
+
+The KidCanCode Github repo can also be found at: (https://github.com/kidscancode/topdown_tanks)
 
 ## Helpful Side Tutorials
 
