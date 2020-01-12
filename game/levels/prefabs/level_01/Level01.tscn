@@ -170,4 +170,3 @@ _shell = ExtResource( 5 )
 "tanks",
 ] instance=ExtResource( 6 )]
 position = Vector2( 1088, 1129.47 )
-is_debugging = true

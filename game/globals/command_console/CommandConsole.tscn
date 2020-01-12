@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://globals/command_console/scripts/command_console.gd" type="Script" id=1]
+[ext_resource path="res://globals/command_console/themes/console_panel.theme" type="Theme" id=2]
+
+[node name="CommandConsole" type="CanvasLayer"]
+pause_mode = 2
+layer = 99
+script = ExtResource( 1 )
+
+[node name="ConsolePanel" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -670.0
+margin_bottom = -510.0
+rect_min_size = Vector2( 600, 200 )
+theme = ExtResource( 2 )
+color = Color( 0.270588, 0.270588, 0.270588, 0.705882 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConsolePanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ConsolePanel/VBoxContainer"]
+margin_right = 1220.0
+margin_bottom = 507.0
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+
+[node name="CommandLog" type="Label" parent="ConsolePanel/VBoxContainer/ScrollContainer"]
+margin_right = 1220.0
+margin_bottom = 507.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Command log text goes here."
+
+[node name="Prompt" type="LineEdit" parent="ConsolePanel/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0.705882 )
+margin_top = 511.0
+margin_right = 1220.0
+margin_bottom = 540.0
+text = "User text goes here"
+caret_blink = true
+[connection signal="text_changed" from="ConsolePanel/VBoxContainer/Prompt" to="." method="_on_Prompt_text_changed"]
+[connection signal="text_entered" from="ConsolePanel/VBoxContainer/Prompt" to="." method="_on_Prompt_text_entered"]

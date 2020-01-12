@@ -20,6 +20,11 @@ config/icon="res://icon.png"
 config/godot_version="3.1.2"
 config/game_version="1.0.0"
 
+[autoload]
+
+Utils="*res://globals/utils/scripts/Utils.gd"
+CommandConsole="*res://globals/command_console/CommandConsole.tscn"
+
 [display]
 
 window/size/width=1920

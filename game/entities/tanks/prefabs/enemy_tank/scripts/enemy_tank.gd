@@ -19,14 +19,14 @@ var _is_in_los = false
 var _hit = Vector2()
 
 # Debug
-export (bool) var is_debugging = false
+var _is_debugging = false
 
 ################################################################################
 # BUILT-IN VIRTUAL METHODS (CANNOT OVERRIDE)
 ################################################################################
 
 func _draw():
-	if not is_debugging:
+	if not _is_debugging:
 		return
 	
 	draw_circle(Vector2(), _detection_radius, Color(.867, .91, .247, 0.25))
@@ -109,20 +109,38 @@ func _steer_turret(delta):
 	var current_dir = Vector2(1, 0).rotated(_turret_pivot.global_rotation)
 	
 	if _target:
-		var target_dir = (_target.position - global_position).normalized()
-		
-		_turret_pivot.global_rotation = current_dir.linear_interpolate(
-			target_dir, _turret_rotation_speed * delta).angle()
-		
 		_is_in_los = _check_line_of_sight()
 		
-		if target_dir.dot(current_dir) > 0.95 and _is_in_los:
-			_shoot_shell(_target)
+		if _is_in_los:
+			var target_dir = (_target.position - global_position).normalized()
+	
+			_turret_pivot.global_rotation = current_dir.linear_interpolate(
+				target_dir, _turret_rotation_speed * delta).angle()
+			
+			if target_dir.dot(current_dir) > 0.95:
+				_shoot_shell(_target)
+		else:
+			var body_dir = Vector2(cos(global_rotation), sin(global_rotation))
+		
+			_turret_pivot.global_rotation = current_dir.linear_interpolate(
+				body_dir, _turret_rotation_speed * delta).angle()
 	else:
 		var body_dir = Vector2(cos(global_rotation), sin(global_rotation))
 		
 		_turret_pivot.global_rotation = current_dir.linear_interpolate(
 			body_dir, _turret_rotation_speed * delta).angle()
+
+################################################################################
+# PUBLIC METHODS
+################################################################################
+
+func activate_debug_mode():
+	_is_debugging = true
+
+#-------------------------------------------------------------------------------
+
+func deactivate_debug_mode():
+	_is_debugging = false
 
 ################################################################################
 # SIGNAL HANDLING
