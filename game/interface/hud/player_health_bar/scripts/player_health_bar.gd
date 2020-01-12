@@ -18,6 +18,11 @@ var _bar_texture = null
 ################################################################################
 
 func update_health(value):
+	var has_been_damaged = false
+	
+	if value < _bar.value:
+		has_been_damaged = true
+	
 	var health_percentage = value / _bar.max_value * 100
 	var bar_texture = null
 	
@@ -34,7 +39,9 @@ func update_health(value):
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	
 	_tween.start()
-	_anim.play('health_flash')
+	
+	if has_been_damaged:
+		_anim.play('health_flash')
 
 #-------------------------------------------------------------------------------
 

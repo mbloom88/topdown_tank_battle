@@ -20,6 +20,7 @@ _shell = ExtResource( 3 )
 _shell_cooldown_value = 0.25
 max_speed = 0.0
 _body_rotation_speed = 0.0
+_turret_rotation_speed = 3.0
 
 [node name="TankBody" parent="." index="0"]
 texture = SubResource( 1 )

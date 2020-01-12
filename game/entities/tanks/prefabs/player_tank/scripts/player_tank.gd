@@ -30,6 +30,16 @@ func _detect_controls(delta):
 # PUBLIC METHODS
 ################################################################################
 
+func heal(amount):
+	_health += amount
+	
+	if _health > max_health:
+		_health = max_health
+	
+	update_health_hud()
+
+#-------------------------------------------------------------------------------
+
 func set_camera_limits(limits):
 	_camera.limit_left = limits['left']
 	_camera.limit_right = limits['right']

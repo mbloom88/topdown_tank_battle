@@ -27,6 +27,8 @@ format = 1
 
 [node name="GunTurrets" type="Node2D" parent="."]
 
+[node name="PickupItems" type="Node2D" parent="."]
+
 [node name="Bullets" type="Node2D" parent="."]
 
 [node name="HUD" type="CanvasLayer" parent="."]

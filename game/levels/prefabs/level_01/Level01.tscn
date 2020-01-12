@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://levels/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/gfx/tilesets/grass_and_sand_tiles.tres" type="TileSet" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://entities/tanks/prefabs/enemy_tank/EnemyTank.tscn" type="PackedScene" id=4]
 [ext_resource path="res://entities/bullets/prefabs/enemy_missile_seeking/EnemyMissileSeeking.tscn" type="PackedScene" id=5]
 [ext_resource path="res://entities/tanks/prefabs/machine_gun_turret/MachineGunTurret.tscn" type="PackedScene" id=6]
+[ext_resource path="res://entities/pickup_items/PickupItem.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -151,7 +152,9 @@ obstacle_type = 19
 
 [node name="PlayerTank" parent="." index="2"]
 position = Vector2( 2030, 1480 )
-is_invincible = true
+
+[node name="PatrolPaths" parent="." index="3"]
+editor/display_folded = true
 
 [node name="Path2D" type="Path2D" parent="PatrolPaths" index="0"]
 curve = SubResource( 1 )
@@ -164,7 +167,17 @@ rotation = 1.61013
 _shell = ExtResource( 5 )
 max_speed = 100.0
 
-[node name="MachineGunTurret" parent="GunTurrets" index="0" groups=[
-"tanks",
-] instance=ExtResource( 6 )]
+[node name="MachineGunTurret" parent="GunTurrets" index="0" instance=ExtResource( 6 )]
 position = Vector2( 1088, 1129.47 )
+
+[node name="PickupItem" parent="PickupItems" index="0" instance=ExtResource( 7 )]
+position = Vector2( 1830.26, 1471.24 )
+
+[node name="PickupItem2" parent="PickupItems" index="1" instance=ExtResource( 7 )]
+position = Vector2( 2656.66, 443.12 )
+
+[node name="PickupItem3" parent="PickupItems" index="2" instance=ExtResource( 7 )]
+position = Vector2( 717.548, 260.921 )
+
+[node name="PickupItem4" parent="PickupItems" index="3" instance=ExtResource( 7 )]
+position = Vector2( 232.77, 1734.78 )

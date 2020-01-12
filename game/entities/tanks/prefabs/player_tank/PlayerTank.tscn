@@ -8,7 +8,7 @@
 [ext_resource path="res://entities/tanks/prefabs/player_tank/collision_shapes/player_tank_collision_shape.tres" type="Shape2D" id=6]
 
 [node name="PlayerTank" instance=ExtResource( 1 )]
-collision_mask = 6
+collision_mask = 38
 script = ExtResource( 2 )
 max_health = 100
 _shell = ExtResource( 3 )

@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://entities/pickup_items/scripts/pickup_item.gd" type="Script" id=1]
+[ext_resource path="res://entities/pickup_items/animations/SETUP.anim" type="Animation" id=2]
+[ext_resource path="res://entities/pickup_items/animations/bounce.anim" type="Animation" id=3]
+[ext_resource path="res://assets/gfx/sprites/shadowing/shadow_circle.png" type="Texture" id=4]
+[ext_resource path="res://assets/gfx/spritesheets/entities/onlyObjects_retina.png" type="Texture" id=5]
+[ext_resource path="res://assets/gfx/sprites/tools/wrench_white.png" type="Texture" id=6]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 5 )
+region = Rect2( 592, 420, 56, 56 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 33.7057
+
+[node name="PickupItem" type="Area2D"]
+collision_layer = 32
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/SETUP = ExtResource( 2 )
+anims/bounce = ExtResource( 3 )
+
+[node name="Shadow" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0.588235 )
+position = Vector2( 0, 25 )
+scale = Vector2( 0.25, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = SubResource( 1 )
+
+[node name="Icon" type="Sprite" parent="."]
+self_modulate = Color( 0.129412, 0.882353, 0.0196078, 1 )
+position = Vector2( 0, -85 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+[connection signal="body_entered" from="." to="." method="_on_PickupItem_body_entered"]
