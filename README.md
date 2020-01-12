@@ -1,6 +1,9 @@
 # Topdown Tank Battle
 
 ## Description
+
+![Topdown Tank Battle Sreenshot](http://kidscancode.org/blog/img/tanks_gameplay.png)
+
 Game tutorial from Chris Bradfield at 
 [KidsCanCode - Topdown Tank Battle](http://kidscancode.org/blog/2018/04/godot3_tanks_part1/). 
 
