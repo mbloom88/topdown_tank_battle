@@ -37,7 +37,7 @@ Specific assets used in this tutorial are:
 * [UI Pack](https://www.kenney.nl/assets/ui-pack)
 * [UI Pack: Space Expansion](https://www.kenney.nl/assets/ui-pack-space-expansion)
 
-The KidCanCode Github repo can also be found at: (https://github.com/kidscancode/topdown_tanks)
+The KidCanCode Github repo can also be found [here](https://github.com/kidscancode/topdown_tanks), which also has several assets that are not included in the assets listed above.
 
 ## Helpful Side Tutorials
 
