@@ -153,9 +153,6 @@ obstacle_type = 19
 position = Vector2( 2030, 1480 )
 is_invincible = true
 
-[node name="PatrolPaths" parent="." index="3"]
-editor/display_folded = true
-
 [node name="Path2D" type="Path2D" parent="PatrolPaths" index="0"]
 curve = SubResource( 1 )
 
@@ -165,6 +162,7 @@ rotation = 1.61013
 
 [node name="EnemyTank" parent="PatrolPaths/Path2D/PathFollow2D" index="0" instance=ExtResource( 4 )]
 _shell = ExtResource( 5 )
+max_speed = 100.0
 
 [node name="MachineGunTurret" parent="GunTurrets" index="0" groups=[
 "tanks",

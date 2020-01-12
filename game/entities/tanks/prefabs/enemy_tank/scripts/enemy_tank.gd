@@ -12,11 +12,12 @@ onready var _unit_display = $UnitDisplay
 # Turret
 export (float) var _detection_radius = 0.0
 export (float) var _turret_rotation_speed = 0.0
-var _target = null
-var _is_in_los = false
 
 # Obstacle detection
-var _hit = Vector2()
+var _hits = []
+var _target = null
+var _is_in_los = false
+var _aim_location = Vector2()
 
 # Debug
 var _is_debugging = false
@@ -29,12 +30,15 @@ func _draw():
 	if not _is_debugging:
 		return
 	
+	# Draw detection circle
 	draw_circle(Vector2(), _detection_radius, Color(.867, .91, .247, 0.25))
 	
+	# Pointing line to target
 	if _target:
-		var hit_vector = (_hit - global_position).rotated(-global_rotation)
-		draw_line(Vector2(), hit_vector, Color.red)
-		draw_circle(hit_vector, 5, Color.red)
+		for hit in _hits:
+			var hit_vector = (hit - global_position).rotated(-global_rotation)
+			draw_line(Vector2(), hit_vector, Color.red)
+			draw_circle(hit_vector, 5, Color.red)
 
 #-------------------------------------------------------------------------------
 
@@ -59,20 +63,31 @@ func _check_line_of_sight():
 	"""
 	var space = get_world_2d().direct_space_state
 	
-	var new_obstacle = space.intersect_ray(global_position, 
-		_target.global_position, [self], collision_mask)
+	# Add five sight lines to the edges of the targets collision shape and to
+	# its center
+	_hits.clear()
+	_is_in_los = false
 	
-	# Error checking
-	if not new_obstacle:
-		_hit = Vector2()
-		return false
+	var target_extents = \
+		_target.get_node('CollisionShape2D').shape.extents - Vector2(5, 5)
+	var nw = _target.position - target_extents
+	var se = _target.position + target_extents
+	var ne = _target.position + Vector2(target_extents.x, -target_extents.y)
+	var sw = _target.position + Vector2(-target_extents.x, target_extents.y)
 	
-	_hit = new_obstacle.position
-	
-	if new_obstacle.collider == _target:
-		return true
-	else:
-		return false
+	for pos in [_target.position, nw, ne, se, sw]:
+		var new_obstacle = space.intersect_ray(global_position, pos, [self],
+			collision_mask)
+		
+		if not new_obstacle:
+			continue
+		
+		_hits.append(new_obstacle.position)
+		
+		if new_obstacle.collider == _target:
+			_is_in_los = true
+			_aim_location = new_obstacle.position
+			break
 
 #-------------------------------------------------------------------------------
 
@@ -109,10 +124,10 @@ func _steer_turret(delta):
 	var current_dir = Vector2(1, 0).rotated(_turret_pivot.global_rotation)
 	
 	if _target:
-		_is_in_los = _check_line_of_sight()
+		_check_line_of_sight()
 		
 		if _is_in_los:
-			var target_dir = (_target.position - global_position).normalized()
+			var target_dir = (_aim_location - global_position).normalized()
 	
 			_turret_pivot.global_rotation = current_dir.linear_interpolate(
 				target_dir, _turret_rotation_speed * delta).angle()
@@ -136,6 +151,7 @@ func _steer_turret(delta):
 
 func activate_debug_mode():
 	_is_debugging = true
+	update()
 
 #-------------------------------------------------------------------------------
 

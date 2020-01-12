@@ -8,10 +8,10 @@ func _steer_turret(delta):
 	var current_dir = Vector2(1, 0).rotated(_turret_pivot.global_rotation)
 	
 	if _target:
-		_is_in_los = _check_line_of_sight()
+		_check_line_of_sight()
 		
 		if _is_in_los:
-			var target_dir = (_target.position - global_position).normalized()
+			var target_dir = (_aim_location - global_position).normalized()
 	
 			_turret_pivot.global_rotation = current_dir.linear_interpolate(
 				target_dir, _turret_rotation_speed * delta).angle()
